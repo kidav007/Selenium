@@ -1,4 +1,4 @@
-package pages;
+package google.search.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,20 +7,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
     public WebDriver driver;
-    public WebDriverWait wait;
+    public WebDriverWait webDriverWait;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver,15);
-    }
-
-    public void click (By elementBy) {
-        waitVisibility(elementBy);
-        driver.findElement(elementBy).click();
+        webDriverWait = new WebDriverWait(driver, 15);
     }
 
     public void waitVisibility(By elementBy) {
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
+        webDriverWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
     }
 
 }
