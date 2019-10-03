@@ -27,11 +27,6 @@ public class HomePage extends BasePage {
         return checkIfElementIsVisible(SEARCH_BOX);
     }
 
-    private boolean checkIfElementIsVisible(By element) {
-        waitVisibility(element);
-        return driver.findElement(element).isDisplayed();
-    }
-
     public boolean isKeyboardVisible() {
         return checkIfElementIsVisible(KEYBOARD);
     }

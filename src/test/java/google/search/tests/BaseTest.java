@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
+import java.util.Arrays;
 import java.util.logging.Logger;
 
 public class BaseTest {
@@ -16,8 +17,9 @@ public class BaseTest {
     @BeforeClass
     public void setup() {
         ChromeOptions options = new ChromeOptions();
-//        options.addArguments("-incognito");
+        options.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
         options.addArguments("--disable-popup-blocking");
+        options.addArguments("disable-infobars");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
     }
